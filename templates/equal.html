@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Expenses Equally</title>
+    <link rel="stylesheet" href="../static/add-members.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Split Expenses Equally</h1>
+        <form action="/equal" method="POST">
+            <div class="form-group">
+                <label for="total_expense">Total Expense:</label>
+                <input type="number" step="1" id="total_expense" name="total_expense" placeholder="Enter total expense" required>
+            </div>
+            <!-- <div class="form-group">
+                <label for="include_me">Include Me [y/n] ?</label>
+                <input type="text" id="include_me" name="include_me" placeholder="[y/n]">
+            </div> -->
+            <div id="phone-list">
+                <div class="phone-input">
+                    <label for="phone1">Phone 1:</label>
+                    <input type="tel" id="phone1" name="phones[]" placeholder="Enter phone number" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Description">Description :</label>
+                <input type="text" id="Description" name="Description" placeholder="Enter Description" required>
+            </div>
+            <button type="button" id="add-phone-btn">Add Another Phone</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to add more phone number input fields
+        document.getElementById('add-phone-btn').addEventListener('click', function() {
+            const phoneList = document.getElementById('phone-list');
+            const phoneCount = phoneList.getElementsByClassName('phone-input').length + 1;
+
+            const newPhoneDiv = document.createElement('div');
+            newPhoneDiv.classList.add('phone-input');
+            newPhoneDiv.innerHTML = `
+                <label for="phone${phoneCount}">Phone ${phoneCount}:</label>
+                <input type="tel" id="phone${phoneCount}" name="phones[]" placeholder="Enter phone number" required>
+                <button type="button" class="remove-phone-btn">Remove</button>
+            `;
+
+            phoneList.appendChild(newPhoneDiv);
+
+            // Event listener to remove the phone input field
+            newPhoneDiv.querySelector('.remove-phone-btn').addEventListener('click', function() {
+                phoneList.removeChild(newPhoneDiv);
+            });
+        });
+    </script>
+</body>
+</html>

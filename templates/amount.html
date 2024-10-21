@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Expenses</title>
+    <link rel="stylesheet" href="../static/amount.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Record Individual Expenses</h1>
+        <form action="/amount" method="POST">
+            <div id="expense-list">
+                <div class="expense-input">
+                    <label for="phone1">Phone 1:</label>
+                    <input type="tel" id="phone1" name="expenses[][phone]" placeholder="Enter phone number" required>
+                    <label for="amount1">Amount:</label>
+                    <input type="number" step="0.01" id="amount1" name="expenses[][amount]" placeholder="Enter amount spent" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Description">Description :</label>
+                <input type="text" id="Description" name="Description" placeholder="Enter Description" required>
+            </div>
+            <button type="button" id="add-expense-btn">Add Another Expense</button>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to add more expense input fields
+        document.getElementById('add-expense-btn').addEventListener('click', function() {
+            const expenseList = document.getElementById('expense-list');
+            const expenseCount = expenseList.getElementsByClassName('expense-input').length + 1;
+
+            const newExpenseDiv = document.createElement('div');
+            newExpenseDiv.classList.add('expense-input');
+            newExpenseDiv.innerHTML = `
+                <label for="phone${expenseCount}">Phone ${expenseCount}:</label>
+                <input type="tel" id="phone${expenseCount}" name="expenses[][phone]" placeholder="Enter phone number" required>
+                <label for="amount${expenseCount}">Amount:</label>
+                <input type="number" step="0.01" id="amount${expenseCount}" name="expenses[][amount]" placeholder="Enter amount spent" required>
+                <button type="button" class="remove-expense-btn">Remove</button>
+            `;
+
+            expenseList.appendChild(newExpenseDiv);
+
+            // Event listener to remove the expense input field
+            newExpenseDiv.querySelector('.remove-expense-btn').addEventListener('click', function() {
+                expenseList.removeChild(newExpenseDiv);
+            });
+        });
+    </script>
+</body>
+</html>
