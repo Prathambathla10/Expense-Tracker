@@ -10,7 +10,7 @@ This is an expense manager app, where you and your friends can split expenses yo
 All these expenses will be reflected in your personalized balance sheet,where you can check the amount , who added that and decription (conatining description of the expense). <br>
 This Project will currently run on your local host, for that there are some pre-requisites listed below.
 
-<h1>Pre-requisites</h1>
+<h1>Pre-requisites :</h1>
 1.Python <br>
 2.My Sql <br>
 3.VS code <br>
