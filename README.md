@@ -1,6 +1,6 @@
 <h1> Hello visitor 👋🏻 !!</h1>
 
-Website URL : https://expense-tracker-j98w.onrender.com
+Website URL : https://expense-tracker-j98w.onrender.com <br>
 This is an expense manager app, where you and your friends can split expenses you have done and can keep a track of that. 👀
 
 <h2>Ways in which you can split expenses :</h2>
