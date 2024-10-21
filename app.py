@@ -249,4 +249,4 @@ def balance_sheet():
 
     return render_template("balance-sheet.html",Transactions=transactions)
 
-app.run(debug=True)
+app.run(debug=False,host='0.0.0.0')
