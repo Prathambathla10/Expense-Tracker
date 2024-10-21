@@ -20,7 +20,7 @@ This Project will currently run on your local host, for that there are some pre-
 1.Flask <br>
 2.mysl.connector <br>
 
-<h1>Steps :</h1>
+<h1>Steps :(To deploy this on your locl host)</h1>
 1.Install all the required softwares/Frameworks/Modules. <br>
 2.Create a connection in VS code to the remote SQL server used in app.py with given credentials. <br>
 3.Run your flask app and now you can use this webapp easily, and there are some  demo credentials given on login page.
