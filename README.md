@@ -7,7 +7,7 @@ This is an expense manager app, where you and your friends can split expenses yo
 2. By Amount. <br>
 3. By Percentage. <br>
 
-All these expenses will be reflected in your personalized balance sheet,where you can check the amount , who added that and decription (conatining description of the expense).
+All these expenses will be reflected in your personalized balance sheet,where you can check the amount , who added that and decription (conatining description of the expense). <br>
 This Project will currently run on your local host, for that there are some pre-requisites listed below.
 
 <h1>Pre-requisites</h1>
