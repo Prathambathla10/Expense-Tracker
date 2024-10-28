@@ -4,9 +4,9 @@ app=Flask(__name__)
 app.secret_key = '0123'
 
 app.config['MYSQL_HOST'] = 'sql12.freesqldatabase.com'
-app.config['MYSQL_USER'] = 'sql12739118'
-app.config['MYSQL_PASSWORD'] = 'Ayat3RsbS2'
-app.config['MYSQL_DB'] = 'sql12739118'
+app.config['MYSQL_USER'] = 'sql12741263'
+app.config['MYSQL_PASSWORD'] = 'MRKeSWPczK'
+app.config['MYSQL_DB'] = 'sql12741263'
 
 def get_mysql_connection():
     return mysql.connector.connect(
