@@ -9,7 +9,7 @@
 <body>
     <h1 class="heading">All Expenses:</h1>
     
-    <table border="1">
+    <table id="balance-sheet" border="1">
         <tr>
             <th>Amount</th>
             <th>Description</th>
@@ -20,10 +20,36 @@
             <td>{{ transaction[0] }}</td> 
             <td>{{ transaction[1] }}</td>
             <td>{{ transaction[2] }}</td> 
-
         </tr>
         {% endfor %}
     </table>
-    
+
+    <button id="download-btn">Download Balance Sheet as PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Get table data
+            let table = document.getElementById('balance-sheet');
+            let rows = Array.from(table.rows);
+
+            // Add title
+            doc.text("Balance Sheet", 14, 10);
+            doc.setFontSize(12);
+            let startY = 20;
+
+            // Add rows to PDF
+            rows.forEach((row, index) => {
+                let cells = Array.from(row.cells).map(cell => cell.innerText);
+                doc.text(cells.join(' '), 14, startY + (index * 10));
+            });
+
+            // Save the PDF
+            doc.save('balance_sheet.pdf');
+        });
+    </script>
 </body>
 </html>
